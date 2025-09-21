@@ -5,7 +5,6 @@ import com.shop.api.mapper.ProductMapper;
 import com.shop.api.repository.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.UUID;

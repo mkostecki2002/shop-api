@@ -26,11 +26,16 @@ VALUES
 -- =====================
 -- CUSTOMERS
 -- =====================
--- INSERT INTO customers (id, first_name, last_name, email, phone, address_id)
--- VALUES
---     ('c1111111-1111-1111-1111-111111111111', 'Jan', 'Kowalski', 'jan.kowalski@email.com', '123456789', '11111111-1111-1111-1111-111111111111'),
---     ('c2222222-2222-2222-2222-222222222222', 'Anna', 'Nowak', 'anna.nowak@email.com', '987654321', '22222222-2222-2222-2222-222222222222');
---
+INSERT INTO customers (id, first_name, last_name, email, password, phone, address_id)
+VALUES
+    ('c1111111-1111-1111-1111-111111111111', 'Jan', 'Kowalski', 'jan.kowalski@email.com','$2a$04$A7azIMpHGS5/9XPe/eKqX.gTagPF4KgV4eMGBwPa0CQgcTyxUE9pG', '123456789',
+     '11111111-1111-1111-1111-111111111111'),
+    ('c2222222-2222-2222-2222-222222222222', 'Anna', 'Nowak', 'anna.nowak@email.com', '12','987654321',
+     '22222222-2222-2222-2222-222222222222');
+
+
+INSERT INTO roles (id, name)
+    VALUES ('11122222-2222-1111-2222-222222222222', 'USER'),('33322222-3333-1111-2222-222222222222', 'ADMIN');
 -- -- =====================
 -- -- ORDERS
 -- -- =====================
@@ -42,6 +47,8 @@ VALUES
 -- -- =====================
 -- -- ORDER_PRODUCT
 -- -- =====================
+    INSERT INTO customers_roles (customer_id, roles_id)
+VALUES ('c1111111-1111-1111-1111-111111111111','11122222-2222-1111-2222-222222222222')
 -- INSERT INTO order_product (id, order_id, product_id, quantity)
 -- VALUES
 --     ('op111111-1111-1111-1111-111111111111', 'o1111111-1111-1111-1111-111111111111', 'p1111111-1111-1111-1111-111111111111', 1),

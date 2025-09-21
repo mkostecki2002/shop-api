@@ -1,5 +1,6 @@
 package com.shop.api.data;
 
-public enum Role {
+
+public enum RoleName {
     ADMIN, USER
 }
