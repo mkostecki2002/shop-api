@@ -1,11 +1,13 @@
 package com.shop.api.data;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "Categories")
-@Data
+@Getter
+@Setter
 public class Category {
     @Id
     private String name;

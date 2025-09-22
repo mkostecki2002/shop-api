@@ -9,4 +9,5 @@ import java.util.UUID;
 public interface CustomerRepository extends JpaRepository<Customer, UUID> {
     List<Customer> findAll();
     List<Customer> findByEmail(String email);
+
 }

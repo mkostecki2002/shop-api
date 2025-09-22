@@ -2,6 +2,9 @@ package com.shop.api.data;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,7 +15,8 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "Customers")
-@Data
+@Getter
+@Setter
 public class Customer implements UserDetails {
     @Id
     @GeneratedValue
@@ -26,6 +30,12 @@ public class Customer implements UserDetails {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Address address;
     @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "customers_roles",
+            joinColumns = @JoinColumn(name = "customer_id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id")
+    )
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Role> roles;
 
     @Override
